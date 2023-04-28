@@ -1,0 +1,7 @@
+# add this to your hosts file 
+127.0.0.1 traefik
+127.0.0.1 postgresdb
+127.0.0.1 keycloak-app
+
+127.0.0.1 tkit-portal-server
+127.0.0.1 apm

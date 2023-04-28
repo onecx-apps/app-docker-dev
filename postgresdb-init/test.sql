@@ -1,0 +1,1 @@
+select 'This is a comment' AS '';
