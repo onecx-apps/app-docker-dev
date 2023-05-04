@@ -43,6 +43,72 @@
   "quickLoginCheckMilliSeconds": 1000,
   "maxDeltaTimeSeconds": 43200,
   "failureFactor": 30,
+  "roles": {
+    "realm": [
+      {
+        "id": "4f47fcff-0116-4cd6-8ebe-7606675c9f3f",
+        "name": "onecx-portal-user",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "OneCX",
+        "attributes": {}
+      },
+      {
+        "id": "8fe9ba09-14d7-43fd-bac4-08f0f72f04e8",
+        "name": "offline_access",
+        "description": "${role_offline-access}",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "OneCX",
+        "attributes": {}
+      },
+      {
+        "id": "8647d1ea-94d8-406a-adab-b0e4e2147e4f",
+        "name": "tkit-portal-admin",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "OneCX",
+        "attributes": {}
+      },
+      {
+        "id": "ef115e25-a746-46e6-9d4a-47ef1b9dea65",
+        "name": "uma_authorization",
+        "description": "${role_uma_authorization}",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "OneCX",
+        "attributes": {}
+      },
+      {
+        "id": "fa32ab92-b967-4174-94e5-b6d495565ab9",
+        "name": "default-roles-OneCX",
+        "description": "${role_default-roles}",
+        "composite": true,
+        "composites": {
+          "realm": ["offline_access", "uma_authorization"]
+        },
+        "clientRole": false,
+        "containerId": "OneCX",
+        "attributes": {}
+      },
+      {
+        "id": "64bc35fc-5bcd-4aff-a274-6c4210f346da",
+        "name": "onecx-admin",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "OneCX",
+        "attributes": {}
+      },
+      {
+        "id": "da98d412-1572-49ad-825e-362da06e5e5d",
+        "name": "onecx-portal-admin",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "OneCX",
+        "attributes": {}
+      }
+    ]
+  },
   "groups": [],
   "defaultRole": {
     "id": "fa32ab92-b967-4174-94e5-b6d495565ab9",
