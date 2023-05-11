@@ -11,11 +11,28 @@ Make sure that .sh scripts in /scripts directory are executable
 
 The docker compose in this repo currently contains:
 
-- `postgresdb` generic postgresql db
+Core infra elements:
+
 - `traefik` reverse proxy
+- `postgresdb` generic postgresql db
+
+Core app elements:
+
 - `keycloak-app` Access and Identity Management Tool (credentials are: admin/admin)
 - `tkit-portal-server` Main MS for tkit portal applications, managing and storing informations about Portals and Users
 - `apm` MS which manages access and permissions for Portal users
+
+Some extra useful tooling:
+
+- `pgadmin` UI admin for Postgres, login as capgemini@capgemini.com/mysecretpassword
+- `data-mgmt` Backend service implementing logic of persisting data into postgres dbs from xls files
+- `data-mgmt-ui` UI application to perist data into configured databases from xls files
+
+### How to use it?
+
+To initilize the services execute:
+
+- `./setup-environment.sh`
 
 To run the services execute:
 
@@ -33,12 +50,14 @@ Postgres server is automatically created with the necessary databases.
 Keycloak db is populated with the following configuration:
 
 - **Realm** - OneCx
-- **Clients** - ping-angular-app, portal-mf-shell
+- **Clients** - ping-angular-app-ui
 - **User** - onecx
 - **Password** - onecx
 - **Roles assigned to the user** - [onecx-portal-admin, onecx-portal-user, onecx-admin, tkit-portal-admin]
 
 Automatic import of basic portal data into tkit-portal-server is enabled.
+
+The easiest way to add your own data into databases is to access data-mgmt-ui under `http://data-mgmt-ui:9091` From there, you can create your own database configuration and persist the data in the form of an .xls file that has the appropriate structure and filename prefix.
 
 ## App configurations
 
