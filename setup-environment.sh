@@ -13,4 +13,7 @@ time docker-compose up -d data-mgmt
 echo 'waiting for pods to start before starting next...';
 
 echo 'setting up data-mgmt-ui ';
+# WSL
 cat ./data-mgmt-init/data_mgmt_local.sql | docker exec -e PGPASSWORD=datamgmt -i app-docker-dev_postgresdb_1 psql -U datamgmt -d datamgmt
+# MacOS
+cat ./data-mgmt-init/data_mgmt_local.sql | docker exec -e PGPASSWORD=datamgmt -i app-docker-dev-postgresdb-1 psql -U datamgmt -d datamgmt
