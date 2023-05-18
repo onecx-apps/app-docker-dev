@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "@@ starting Import"
+export RETRY_DELAY_SECONDS=3
 chmod +x /opt/jboss/keycloak/scripts/wait-for.sh
 /opt/jboss/keycloak/scripts/wait-for.sh "curl --fail --silent http://localhost:8080/realms/master"
 /opt/jboss/keycloak/bin/kcadm.sh config credentials --realm master --user ${KEYCLOAK_ADMIN} --password ${KEYCLOAK_ADMIN_PASSWORD} --server http://localhost:8080
