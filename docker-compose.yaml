@@ -57,19 +57,15 @@ services:
   #############################################
   keycloak-app:
     image: ${KEYCLOAK}
-    entrypoint: sh /opt/jboss/keycloak/scripts/entrypoint-wrapper.sh
+    command:
+      [
+        "start-dev --import-realm",
+      ]
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_DB_URL: "jdbc:postgresql://postgresdb:5432/keycloak"
-      KC_DB_USERNAME: keycloak
-      KC_DB_PASSWORD: keycloak
     volumes:
-      - ./keycloak-init:/opt/jboss/keycloak/imports
-      - ./scripts:/opt/jboss/keycloak/scripts
-    depends_on:
-      postgresdb:
-        condition: service_healthy
+      - ./keycloak-init/realm-export.json:/opt/keycloak/data/import/realm.json
     labels:
       - "traefik.http.services.keycloak-app.loadbalancer.server.port=8080"
       - "traefik.http.routers.keycloak-app.rule=Host(`keycloak-app`)"
