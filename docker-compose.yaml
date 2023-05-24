@@ -72,6 +72,19 @@ services:
     networks:
       - onecx-app
 
+  #############################################
+  ################ Mock ###################
+  #############################################
+  wiremock:
+    image: ${WIREMOCK}
+    volumes:
+      - ./wiremock-init/:/home/wiremock/
+    labels:
+      - "traefik.http.services.wiremock.loadbalancer.server.port=8080"
+      - "traefik.http.routers.wiremock.rule=Host(`wiremock`)"
+    networks:
+      - onecx-app
+
   ##############################################################
   ######### 1000kit apps #######################################
   ##############################################################

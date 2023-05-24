@@ -1,0 +1,56 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "url": "/portal-api/v1/userProfile/me"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "portal-api/userprofile-me.json"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/portal-api/v1/portals/ADMIN"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "portal-api/portal-admin.json"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/portal-api/internal/themes/CapGemini"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "portal-api/theme-capgemini.json"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "url": "/portal-api/v1/portals/ADMIN/menu"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "portal-api/menu-admin.json"
+      }
+    }
+  ]
+}

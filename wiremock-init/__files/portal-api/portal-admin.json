@@ -1,0 +1,104 @@
+{
+  "id": "db3c9bfc-d844-4869-a713-0c085f64cb51",
+  "portalName": "ADMIN",
+  "tenantId": null,
+  "description": "Portal for portals administration",
+  "themeName": "CapGemini",
+  "homePage": "/admin",
+  "baseUrl": "/admin",
+  "companyName": "Capgemini Deutschland GmbH",
+  "address": null,
+  "phoneNumber": null,
+  "rssFeedUrl": null,
+  "footerLabel": "Admin portal",
+  "subjectLinks": [],
+  "microfrontends": [
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.897014Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.897014Z",
+      "modificationUser": null,
+      "id": "05f8bc27-755a-42bf-90a1-7e1bf4f3e8d3",
+      "mfeId": "ANNOUNCEMENTS_MFE",
+      "baseUrl": "/admin/ah-mgmt/announcements"
+    },
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.902141Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.902141Z",
+      "modificationUser": null,
+      "id": "1ec2fee1-e2a6-44cc-9e2e-1cfc5e2b3602",
+      "mfeId": "MENU_MFE",
+      "baseUrl": "/admin/portal-mgmt/menu"
+    },
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.889336Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.889336Z",
+      "modificationUser": null,
+      "id": "192d902d-d7ea-4e9f-9d34-aebd5f69a9ac",
+      "mfeId": "WELCOMEUI_MFE",
+      "baseUrl": "/admin$"
+    },
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.894247Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.894247Z",
+      "modificationUser": null,
+      "id": "ee52969c-38ee-4b0b-a1bb-9195007653ad",
+      "mfeId": "USERPROFILE_MFE",
+      "baseUrl": "/admin/account"
+    },
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.886671Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.886671Z",
+      "modificationUser": null,
+      "id": "61f5e46d-5ce7-4ac3-9c2f-54b02c160670",
+      "mfeId": "THEME_MFE",
+      "baseUrl": "/admin/portal-mgmt/theme"
+    },
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.891761Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.891761Z",
+      "modificationUser": null,
+      "id": "90299d10-86f8-43f3-bc1f-c324532a4f23",
+      "mfeId": "HELP_MFE",
+      "baseUrl": "/admin/ah-mgmt/helpitems"
+    },
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.899298Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.899298Z",
+      "modificationUser": null,
+      "id": "52735b39-b794-4e3c-aa57-b21f3cb6553b",
+      "mfeId": "DEMO_MFE",
+      "baseUrl": "/admin/mfe-demo"
+    },
+    {
+      "version": null,
+      "creationDate": "2023-05-24T11:09:52.882897Z",
+      "creationUser": null,
+      "modificationDate": "2023-05-24T11:09:52.882897Z",
+      "modificationUser": null,
+      "id": "a8d9d0be-87b5-4ea8-bff4-9d76e9755b2a",
+      "mfeId": "PORTAL_MFE",
+      "baseUrl": "/admin/portal-mgmt/portal"
+    }
+  ],
+  "imageUrls": [],
+  "portalRoles": [
+    "onecx-portal-user",
+    "onecx-portal-admin",
+    "onecx-portal-super-admin"
+  ],
+  "logoUrl": null
+}

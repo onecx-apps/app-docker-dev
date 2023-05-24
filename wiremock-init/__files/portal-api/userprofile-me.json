@@ -1,0 +1,44 @@
+{
+  "version": null,
+  "creationDate": "2023-05-24T11:09:55.907332Z",
+  "creationUser": null,
+  "modificationDate": "2023-05-24T11:09:55.907332Z",
+  "modificationUser": null,
+  "id": "dd03b6e0-c221-44b1-ba8c-f2acc0e08d6d",
+  "userId": "onecx",
+  "identityProvider": "keycloak",
+  "identityProviderId": null,
+  "organization": null,
+  "person": {
+    "version": null,
+    "creationDate": "2023-05-24T11:09:55.909049Z",
+    "creationUser": null,
+    "modificationDate": "2023-05-24T11:09:55.909049Z",
+    "modificationUser": null,
+    "id": "e58d073f-b8f3-4b01-816a-b73a6b355a13",
+    "firstName": "Max",
+    "lastName": "Keycloakmann",
+    "displayName": "Max Keycloakmann",
+    "email": "onecx@gm.com",
+    "address": null,
+    "phone": null
+  },
+  "accountSettings": {
+    "version": null,
+    "creationDate": "2023-05-24T11:09:55.908227Z",
+    "creationUser": null,
+    "modificationDate": "2023-05-24T11:09:55.908227Z",
+    "modificationUser": null,
+    "id": "3c4d41f5-78a5-4ece-8914-cc6e525ca205",
+    "privacySettings": null,
+    "localeAndTimeSettings": null,
+    "notificationSettings": null,
+    "layoutAndThemeSettings": {
+      "menuMode": "VERTICAL",
+      "colorScheme": "AUTO"
+    }
+  },
+  "roles": [],
+  "avatar": null,
+  "memberships": []
+}

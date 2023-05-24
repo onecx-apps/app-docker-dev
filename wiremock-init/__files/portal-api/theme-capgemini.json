@@ -1,0 +1,52 @@
+{
+  "version": null,
+  "creationDate": "2023-05-24T11:09:52.817461Z",
+  "creationUser": null,
+  "modificationDate": "2023-05-24T11:09:52.817461Z",
+  "modificationUser": null,
+  "id": "4ca8ae06-5631-4b14-9bee-f74e38bd178a",
+  "name": "CapGemini",
+  "cssFile": null,
+  "description": "CapGemini basic color scheme",
+  "assetsUrl": null,
+  "logoUrl": null,
+  "faviconUrl": null,
+  "previewImageUrl": null,
+  "assetsUpdateDate": null,
+  "properties": {
+    "topbar": {
+      "topbar-bg-color": " rgb(18, 171, 219)",
+      "topbar-item-text-color": " #ffffff",
+      "topbar-text-color": " #ffffff",
+      "topbar-left-bg-color": " #ececec",
+      "topbar-item-text-hover-bg-color": " rgba(255, 255, 255, 0.12)",
+      "topbar-menu-button-bg-color": " rgb(255, 0, 68)",
+      "logo-color": " rgb(18, 171, 219)",
+      "danger-button-bg": "#D32F2F",
+      "info-message-bg": "#b3e5fc",
+      "success-message-bg": "#c8e6c9",
+      "warning-message-bg": "#ffecb3",
+      "error-message-bg": "#ffcdd2"
+    },
+    "general": {
+      "text-color": " rgba(0, 0, 0, 0.87)",
+      "text-secondary-color": " rgba(0, 0, 0, 0.6)",
+      "primary-color": " rgb(18, 171, 219)",
+      "secondary-color": " #ee4400",
+      "body-bg-color": " #f7f7f7",
+      "content-bg-color": " #ffffff",
+      "content-alt-bg-colorr": "",
+      "overlay-content-bg-color": " #ffffff",
+      "hover-bg-color": " rgba(0, 0, 0, 0.04)",
+      "solid-surface-text-color": " #ffffff",
+      "divider-color": " #e4e4e4"
+    },
+    "sidebar": {
+      "menu-text-color": " #657380",
+      "menu-bg-color": " #fdfeff",
+      "menu-item-text-color": " #515c66",
+      "menu-item-hover-bg-color": " rgba(0, 0, 0, 0.04)",
+      "inline-menu-border-color": " #e4e4e4"
+    }
+  }
+}
