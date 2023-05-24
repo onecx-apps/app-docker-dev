@@ -2,7 +2,7 @@
 
 ## Before
 
-Make sure that .sh scripts in /scripts directory are executable
+Make sure that .sh scripts in / directory are executable
 
 - e.g. `-rwxr-xr-x wait-for.sh`
 - if they are not executable, use the command `chmod +x <file>`
