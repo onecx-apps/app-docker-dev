@@ -14,3 +14,7 @@ GRANT ALL PRIVILEGES ON DATABASE apm TO apm;
 CREATE USER datamgmt WITH ENCRYPTED PASSWORD 'datamgmt';
 CREATE DATABASE datamgmt with owner datamgmt;
 GRANT ALL PRIVILEGES ON DATABASE datamgmt TO datamgmt;
+-- --document management
+CREATE USER documentmanagement WITH ENCRYPTED PASSWORD 'documentmanagement';
+CREATE DATABASE documentmanagement with owner documentmanagement;
+GRANT ALL PRIVILEGES ON DATABASE documentmanagement TO documentmanagement;
