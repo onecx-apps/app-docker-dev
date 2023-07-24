@@ -54,6 +54,9 @@ Then run the services:
 
 - `docker-compose up -d`
 
+if you have docker compose v2:
+- 'docker compose up -d'
+
 In this mode the IDE is serving real authentication mechanism and real portal and apm server preloaded with test data
 
 ## Initial Data
