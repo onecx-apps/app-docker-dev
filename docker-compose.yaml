@@ -1,7 +1,7 @@
 services:
-  ########################################
-  ########### REVERSE-PROXY ##############
-  ########################################
+  #############################################
+  ############## REVERSE-PROXY ################
+  #############################################
   traefik:
     image: ${TRAEFIK}
     command: --api.insecure=true --providers.docker=true #Enables the web UI and tells Træfik to listen to docker
@@ -13,9 +13,9 @@ services:
     networks:
       - onecx-app
 
-  ########################################
-  ############### DATABASE ###############
-  ########################################
+  #############################################
+  ################# DATABASE ##################
+  #############################################
   postgresdb:
     image: ${POSTGRES}
     ports:
@@ -73,21 +73,8 @@ services:
       - onecx-app
 
   #############################################
-  ################ Mock ###################
+  ################ OneCX apps #################
   #############################################
-  wiremock:
-    image: ${WIREMOCK}
-    volumes:
-      - ./wiremock-init/:/home/wiremock/
-    labels:
-      - "traefik.http.services.wiremock.loadbalancer.server.port=8080"
-      - "traefik.http.routers.wiremock.rule=Host(`wiremock`)"
-    networks:
-      - onecx-app
-
-  ##############################################################
-  ######### 1000kit apps #######################################
-  ##############################################################
   tkit-portal-server:
     image: ${TKIT_PORTAL_SERVER}
     environment:
@@ -112,38 +99,72 @@ services:
     networks:
       - onecx-app
 
-  data-mgmt:
-    image: ${DATA_MGMT}
+  onecx-document-management-svc:
+    image: ${DOCUMENT_MANAGEMENT_SVC}
     environment:
-      QUARKUS_DATASOURCE_USERNAME: datamgmt
-      QUARKUS_DATASOURCE_PASSWORD: datamgmt
-      QUARKUS_DATASOURCE_JDBC_URL: "jdbc:postgresql://postgresdb:5432/datamgmt?sslmode=disable"
-      QUARKUS_TKIT_LOG_CONSOLE_JSON: "false"
+      QUARKUS_DATASOURCE_USERNAME: "documentmanagement"
+      QUARKUS_DATASOURCE_PASSWORD: "documentmanagement"
+      QUARKUS_DATASOURCE_JDBC_URL: "jdbc:postgresql://postgresdb:5432/documentmanagement?sslmode=disable"
+      MP_JWT_VERIFY_ISSUER: http://keycloak-app/realms/OneCX
+      MP_JWT_VERIFY_PUBLICKEY_LOCATION: http://keycloak-app:8080/realms/OneCX/protocol/openid-connect/certs/
+      MINIO_ACCESSKEY: minioadmin
+      MINIO_SECRETKEY: minioadmin
+      MINIO_URL: http://minio:9000
+      MINIO_BUCKET: test-bucket
+      MINIO_REGION: us-east-2
+
     depends_on:
       postgresdb:
         condition: service_healthy
+      minio:
+        condition: service_healthy
     labels:
-      - "traefik.http.services.data-mgmt.loadbalancer.server.port=8080"
-      - "traefik.http.routers.data-mgmt.rule=Host(`data-mgmt`)"
+      - "traefik.http.services.onecx-document-management-svc.loadbalancer.server.port=8080"
+      - "traefik.http.routers.onecx-document-management-svc.rule=Host(`onecx-document-management-svc`)"
     networks:
       - onecx-app
 
-  data-mgmt-ui:
-    image: ${DATA_MGMT_UI}
-    ports:
-      - "9091:8080" 
+  onecx-document-management-bff:
+    image: ${DOCUMENT_MANAGEMENT_BFF}
     environment:
-      DATA_MGMT_MP_REST_URL: http://data-mgmt:8080
-      PORTAL_V1_MP_REST_URL: http://tkit-portal-server:8080/v1
-      QUARKUS_OIDC_AUTH_SERVER_URL: http://keycloak-app:8080/realms/OneCX
-      ORG_TKIT_PORTAL_MVC_MENU_DISABLEPERMISSIONS: "true"
-      ORG_TKIT_PORTAL_MVC_DISABLEPERMISSIONS: "true"
+        DOCUMENTMGMT_MP_REST_URL: "http://onecx-document-management-svc:8080"
+        DOCUMENTMGMT_MP_REST_FORWARD_HEADERS: "true"
+        APM_MP_REST_URL: "http://apm:8080/tkit-apm-rs/v2"
+        TKITPORTALSERVER_MP_REST_URL: "http://tkit-portal-server:8080"
     depends_on:
       postgresdb:
         condition: service_healthy
+      onecx-document-management-svc:
+        condition: service_healthy
     labels:
-      - "traefik.http.services.data-mgmt-ui.loadbalancer.server.port=8080"
-      - "traefik.http.routers.data-mgmt-ui.rule=Host(`data-mgmt-ui`)"
+      - "traefik.http.services.onecx-document-management-bff.loadbalancer.server.port=8080"
+      - "traefik.http.routers.onecx-document-management-bff.rule=Host(`onecx-document-management-bff`)"
+    networks:
+      - onecx-app
+      
+  onecx-document-management-ui:
+    image: ${DOCUMENT_MANAGEMENT_UI}
+    environment:
+        ONECX_PORTAL_FAVORITES_DISABLED: "false"
+        ONECX_PORTAL_FEEDBACK_DISABLED: "false"
+        ONECX_PORTAL_SEARCH_DISABLED: "true"
+        ONECX_PORTAL_SUPPORT_TICKET_DISABLED: "true"
+        ONECX_PORTAL_ANNOUNCEMENTS_DISABLED: "true"
+        ONECX_PORTAL_PASSWORD_CHANGE_DISABLED: "true"
+        ONECX_PORTAL_SETTINGS_DISABLED: "true"
+        ONECX_PORTAL_MY_ROLES_PERMISSIONS_DISABLED: "true"
+        ONECX_PORTAL_HELP_DISABLED: "true"
+        TKIT_PORTAL_ID: "AIE"
+        TKIT_PORTAL_THEME_SERVER_URL: "http://tkit-portal-server:8080"
+
+    depends_on:
+      postgresdb:
+        condition: service_healthy
+      onecx-document-management-bff:
+        condition: service_healthy
+    labels:
+      - "traefik.http.services.onecx-document-management-ui.loadbalancer.server.port=8080"
+      - "traefik.http.routers.onecx-document-management-ui.rule=Host(`onecx-document-management-ui`)"
     networks:
       - onecx-app
 

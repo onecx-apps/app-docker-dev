@@ -9,7 +9,7 @@ then
 fi
 	
 
-${DOCKER_COMPOSE} up -d traefik postgresdb pgadmin keycloak-app wiremock
+${DOCKER_COMPOSE} up -d traefik postgresdb pgadmin keycloak-app
 
 
 #end

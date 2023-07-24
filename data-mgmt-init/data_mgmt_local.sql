@@ -1,4 +1,0 @@
-TRUNCATE dm_datasource_config;
-INSERT INTO dm_datasource_config ("guid", "optlock", "creationdate", "creationuser", "modificationdate", "modificationuser", "csv_default_export_table_names", "db_scheme_name", "db_type", "file_name_prefix", "db_password", "db_url", "db_user", "csv_exclude_table_names") VALUES
-('APM',	10,	'2021-06-08 12:28:07.388',	'anonymous',	'2021-06-10 08:25:30.407',	'anonymous',	NULL,	'public',	'POSTGRES',	'APM',	'apm',	'jdbc:postgresql://postgresdb:5432/apm',	'apm',	'lb_lock,lb_log'),
-('TKIT_PORTAL',	9,	'2019-05-31 16:28:19.278',	'anonymous',	'2021-06-10 08:25:30.499',	'anonymous',	NULL,	'public',	'POSTGRES',	'TP',	'tkit_portal',	'jdbc:postgresql://postgresdb:5432/tkit_portal',	'tkit_portal',	'lb_lock,lb_log')

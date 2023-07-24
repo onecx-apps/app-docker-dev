@@ -10,10 +10,6 @@ GRANT ALL PRIVILEGES ON DATABASE "tkit-portal-server" TO "tkit-portal-server";
 CREATE USER apm WITH ENCRYPTED PASSWORD 'apm';
 CREATE DATABASE apm with owner apm;
 GRANT ALL PRIVILEGES ON DATABASE apm TO apm;
--- --data mgmt
-CREATE USER datamgmt WITH ENCRYPTED PASSWORD 'datamgmt';
-CREATE DATABASE datamgmt with owner datamgmt;
-GRANT ALL PRIVILEGES ON DATABASE datamgmt TO datamgmt;
 -- --document management
 CREATE USER documentmanagement WITH ENCRYPTED PASSWORD 'documentmanagement';
 CREATE DATABASE documentmanagement with owner documentmanagement;
