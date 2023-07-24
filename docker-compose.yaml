@@ -164,6 +164,30 @@ services:
     networks:
       - onecx-app
 
+  minio:
+    image: ${MINIO}
+    container_name: minio
+    ports:
+      - 9000:9000
+      - 9001:9001
+    expose:
+      - 9000
+      - 9001
+    labels:
+      - "test.property.minio.url=http://$${host:minio}:$${port:minio:9000}"
+      - "test.property.minio.accesskey=my_access"
+      - "test.property.minio.secretkey=my_secret"
+    command:
+      - server
+      - /data
+      - --console-address
+      - ":9001"
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    networks:
+      - onecx-app
+
 volumes:
   postgres:
 
